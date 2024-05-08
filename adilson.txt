@@ -1,0 +1,49 @@
+class RoboCod:
+    def _init_(self):
+        self.cor = 'preta'
+        self.posicao = (0, 0)  # Posição inicial (x, y)
+        self.direcao = 0  # Ângulo de direção inicial (em graus)
+        self.energia = 100  # Energia inicial
+        self.municao = 10  # Munição inicial
+
+    def mover_para(self, x, y):
+        """Move o robô para uma nova posição."""
+        self.posicao = (x, y)
+        print(f"Movendo para a posição ({x}, {y}).")
+
+    def girar_para(self, angulo):
+        """Gira o robô para um novo ângulo."""
+        self.direcao = angulo
+        print(f"Girando para {angulo} graus.")
+
+    def atirar(self):
+        """Dispara uma munição se disponível."""
+        if self.municao > 0:
+            self.municao -= 1
+            print("Atirando!")
+        else:
+            print("Sem munição para atirar!")
+
+    def desviar(self):
+        """Lógica de evasão para desviar de balas."""
+        print("Desviando de balas!")
+        # Implementar lógica de evasão, como mover-se aleatoriamente
+
+    def detectar_ameaça(self):
+        """Detecta ameaças ao robô."""
+        # Implementar lógica de detecção de ameaças, como sensores
+        return False  # Retorna True se houver uma ameaça
+
+    def agir(self):
+        """Decide a ação a ser tomada com base nas condições."""
+        if self.detectar_ameaça():
+            self.desviar()
+        else:
+            self.atirar()
+
+# Exemplo de uso
+robo = RoboCod()
+robo.mover_para(10, 20)
+robo.girar_para(90)
+robo.atirar()
+robo.agir()
